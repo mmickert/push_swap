@@ -6,28 +6,53 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 13:46:16 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/26 13:47:39 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/26 15:49:40 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrb(t_list **stack_b)
+void	rra(t_list **stack_a, int i)
 {
 	t_list	*last;
-	t_list	*temp;
-	t_list	*first;
+	t_list	*second_last;
+
+	if (stack_a && (*stack_a) && (*stack_a)->next)
+	{
+		second_last = *stack_a;
+		while (second_last->next->next)
+			second_last = second_last->next;
+		last = second_last->next;
+		second_last->next = NULL;
+		last->next = *stack_a;
+		*stack_a = last;
+	}
+	if (i != 42)
+		ft_printf("rra\n");
+}
+
+void	rrb(t_list **stack_b, int i)
+{
+	t_list	*last;
+	t_list	*second_last;
 
 	if (stack_b && (*stack_b) && (*stack_b)->next)
 	{
-		first = *stack_b;
-		last = *stack_b;
-		while (last->next)
-			last = last->next;
-		temp = first;
-		*stack_b = first->next;
-		last->next = temp;
-		first->next = NULL;
-		ft_printf("rrb\n");
+		second_last = *stack_b;
+		while (second_last->next->next)
+			second_last = second_last->next;
+		last = second_last->next;
+		second_last->next = NULL;
+		last->next = *stack_b;
+		*stack_b = last;
 	}
+	if (i != 42)
+		ft_printf("rrb\n");
+}
+
+void	rrr(t_list **stack_b, t_list **stack_a)
+{
+	rra(stack_a, 42);
+	rrb(stack_b, 42);
+	ft_printf("rrr\n");
 }

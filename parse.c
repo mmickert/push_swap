@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/25 13:45:52 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/27 19:05:28 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	parse(int argc, char **argv, t_list **stack_a, int index)
 	int		i;
 	int		*array_numbers;
 	char	**input_numbers;
+	int		array_len;
 
+	array_len = 0;
 	while (index < argc)
 	{
 		input_numbers = ft_split(argv[index], ' ');
@@ -27,12 +29,14 @@ int	parse(int argc, char **argv, t_list **stack_a, int index)
 		// put_in_array_stack(input_numbers, stack_a, i);
 		while (input_numbers[i] != NULL)
 		{
-			array_numbers = ft_calloc(1, sizeof(int));
+			array_numbers = ft_calloc(1 + i, sizeof(int));
 			if (!array_numbers)
 				return (ft_printf("Error: Memory allocation failed\n"), 1);
 			array_numbers[i] = ft_atoi_push_swap(input_numbers[i]);
-			if (has_duplicate(*stack_a, array_numbers[i]) == 1)
-				return (free(array_numbers), free_input_numbers(input_numbers), 1);
+			array_len++;
+			if (has_duplicate(*stack_a, *array_numbers) == 1)
+				return (free(array_numbers), free_input_numbers(input_numbers),
+					1);
 			ft_lstadd_back(stack_a, ft_pslstnew(array_numbers));
 			i++;
 		}
@@ -40,6 +44,7 @@ int	parse(int argc, char **argv, t_list **stack_a, int index)
 			free_input_numbers(input_numbers);
 		index++;
 	}
+	// sort_index(array_numbers, array_len);
 	return (0);
 }
 
@@ -96,8 +101,8 @@ int	check(char *str, t_list **stack_a)
 
 int	ft_atoi_push_swap(const char *str)
 {
-	int	i;
-	int	nbr;
+	int i;
+	int nbr;
 
 	nbr = 0;
 	i = 0;

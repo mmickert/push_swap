@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:23:06 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/26 14:19:09 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/27 18:37:33 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	pb(t_list **stack_a, t_list **stack_b);
 void	ra(t_list **stack_a, int i);
 void	rb(t_list **stack_b, int i);
 void	rr(t_list **stack_b, t_list **stack_a);
-void	rrb(t_list **stack_b);
+void	rra(t_list **stack_a, int i);
+void	rrb(t_list **stack_b, int i);
+void	rrr(t_list **stack_b, t_list **stack_a);
+int		*sort_index(int *array_numbers, int array_len);
 
 void	print_stack_a(t_list **stack_a);
 void	print_stack_b(t_list **stack_b);
