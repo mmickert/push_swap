@@ -6,34 +6,35 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:22:10 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/27 18:30:20 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/28 15:13:09 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 int	main(int argc, char *argv[])
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		index;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		i;
 
-	index = 1;
+	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	if (parse(argc, argv, &stack_a, index) == 1)
+	if (parse(argc, argv, &stack_a, i) == 1)
 	{
 		system("leaks push_swap");
 		return (1);
 	}
+	system("leaks push_swap");
+	print_stack_a(&stack_a);
 	return (0);
 }
 
 // int	main(int argc, char *argv[])
 // {
-// 	t_list	*stack_a;
-// 	t_list	*stack_b;
+// 	t_stack	*stack_a;
+// 	t_stack	*stack_b;
 // 	int		index;
 
 // 	index = 1;
@@ -73,26 +74,26 @@ int	main(int argc, char *argv[])
 // 	return (0);
 // }
 
-void	print_stack_a(t_list **stack_a)
+void	print_stack_a(t_stack **stack_a)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	temp = *stack_a;
 	while (temp)
 	{
-		ft_printf("stack a: %d\n", *(int *)temp->content);
+		ft_printf("stack a: %d\n", temp->content);
 		temp = temp->next;
 	}
 }
 
-void	print_stack_b(t_list **stack_b)
+void	print_stack_b(t_stack **stack_b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	temp = *stack_b;
 	while (temp)
 	{
-		ft_printf("stack_b: %d\n", *(int *)temp->content);
+		ft_printf("stack_b: %d\n", temp->content);
 		temp = temp->next;
 	}
 }
