@@ -6,17 +6,17 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 12:47:06 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/26 14:12:50 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:55:43 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_list **stack_a, int i)
+void	ra(t_stack **stack_a, int i)
 {
-	t_list	*last;
-	t_list	*temp;
-	t_list	*first;
+	t_stack	*last;
+	t_stack	*temp;
+	t_stack	*first;
 
 	if (stack_a && (*stack_a) && (*stack_a)->next)
 	{
@@ -33,11 +33,11 @@ void	ra(t_list **stack_a, int i)
 		ft_printf("ra\n");
 }
 
-void	rb(t_list **stack_b, int i)
+void	rb(t_stack **stack_b, int i)
 {
-	t_list	*last;
-	t_list	*temp;
-	t_list	*first;
+	t_stack	*last;
+	t_stack	*temp;
+	t_stack	*first;
 
 	if (stack_b && (*stack_b) && (*stack_b)->next)
 	{
@@ -54,7 +54,7 @@ void	rb(t_list **stack_b, int i)
 		ft_printf("rb\n");
 }
 
-void	rr(t_list **stack_b, t_list **stack_a)
+void	rr(t_stack **stack_b, t_stack **stack_a)
 {
 	ra(stack_a, 42);
 	rb(stack_b, 42);

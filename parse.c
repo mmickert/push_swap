@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/28 15:12:38 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/30 09:49:31 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	parse(int argc, char **argv, t_stack **stack_a, int i)
 	int		j;
 	char	**input_numbers;
 	int		array_len;
-	array_len = 0;
 
+	array_len = 0;
 	while (i < argc)
 	{
 		input_numbers = ft_split(argv[i], ' ');
@@ -27,7 +27,8 @@ int	parse(int argc, char **argv, t_stack **stack_a, int i)
 			return (free_input_numbers(input_numbers), 1);
 		while (input_numbers[j] != NULL)
 		{
-			stackadd_back(stack_a, stacknew(ft_atoi_push_swap(input_numbers[j])));
+			stackadd_back(stack_a,
+				stacknew(ft_atoi_push_swap(input_numbers[j])));
 			j++;
 			array_len++;
 		}
@@ -38,17 +39,16 @@ int	parse(int argc, char **argv, t_stack **stack_a, int i)
 	return (0);
 }
 
-// build the array from stack_a, sort array with bubble sort, siign index to numbers in stack, sort stack with K sort
-	// int		*array_numbers;
-	// 		array_numbers = ft_calloc(array_len, sizeof(int));
-	// 		if (!array_numbers)
-	// 			return (ft_printf("Error: Memory allocation failed\n"), 1);
-	// 		if (has_duplicate(*stack_a, *array_numbers) == 1)
-	// 			return (free(array_numbers), free_input_numbers(input_numbers),
-	// 				1);
-	// 		stackadd_back(stack_a, stacknew(array_numbers));
-		// sort_index(array_numbers, array_len);
-
+// check stack for dups, build the array from stack_a, sort array with bubble sort, sign index to numbers in stack, sort stack with K sort
+// int		*array_numbers;
+// 		array_numbers = ft_calloc(array_len, sizeof(int));
+// 		if (!array_numbers)
+// 			return (ft_printf("Error: Memory allocation failed\n"), 1);
+// 		if (has_duplicate(*stack_a, *array_numbers) == 1)
+// 			return (free(array_numbers), free_input_numbers(input_numbers),
+// 				1);
+// 		stackadd_back(stack_a, stacknew(array_numbers));
+// sort_index(array_numbers, array_len);
 
 void	free_input_numbers(char **input_numbers)
 {
@@ -66,8 +66,10 @@ void	free_input_numbers(char **input_numbers)
 int	check(char *str, t_stack **stack_a)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (str[i])
 	{
 		if (str[i] == '-')
@@ -85,8 +87,8 @@ int	check(char *str, t_stack **stack_a)
 
 int	ft_atoi_push_swap(const char *str)
 {
-	int i;
-	int nbr;
+	int	i;
+	int	nbr;
 
 	nbr = 0;
 	i = 0;

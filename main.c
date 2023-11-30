@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:22:10 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/28 15:13:09 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:58:12 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	if (parse(argc, argv, &stack_a, i) == 1)
-	{
-		system("leaks push_swap");
 		return (1);
-	}
-	system("leaks push_swap");
+	has_duplicate(&stack_a);
 	print_stack_a(&stack_a);
+	// system("leaks push_swap");
 	return (0);
 }
 

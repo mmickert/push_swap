@@ -6,15 +6,15 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:46:29 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/25 15:05:50 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:55:34 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (*stack_b)
 	{
@@ -34,9 +34,9 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (*stack_a)
 	{
