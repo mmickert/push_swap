@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:22:10 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 15:58:12 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:39:45 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	print_stack_a(t_stack **stack_a)
 	temp = *stack_a;
 	while (temp)
 	{
-		ft_printf("stack a: %d\n", temp->content);
+		ft_printf("stack a content: %d\n", temp->content);
+		ft_printf("stack a index: %d\n", temp->index);
 		temp = temp->next;
 	}
 }

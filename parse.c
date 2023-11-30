@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 09:49:31 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:46:51 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,11 @@ int	parse(int argc, char **argv, t_stack **stack_a, int i)
 			free_input_numbers(input_numbers);
 		i++;
 	}
+	stack_to_index(stack_a, array_len);
 	return (0);
 }
 
-// check stack for dups, build the array from stack_a, sort array with bubble sort, sign index to numbers in stack, sort stack with K sort
-// int		*array_numbers;
-// 		array_numbers = ft_calloc(array_len, sizeof(int));
-// 		if (!array_numbers)
-// 			return (ft_printf("Error: Memory allocation failed\n"), 1);
-// 		if (has_duplicate(*stack_a, *array_numbers) == 1)
-// 			return (free(array_numbers), free_input_numbers(input_numbers),
-// 				1);
-// 		stackadd_back(stack_a, stacknew(array_numbers));
-// sort_index(array_numbers, array_len);
+// sort stack with K sort
 
 void	free_input_numbers(char **input_numbers)
 {

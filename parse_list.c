@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:56 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 15:53:39 by mickert          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:13:30 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	has_duplicate(t_stack **stack_a)
 			if (*content == *next_content)
 			{
 				ft_printf("Error: Duplicate number.\n");
+				stackclear(stack_a);
 				return (1);
 			}
 			next_temp = next_temp->next;
 		}
 		temp = temp->next;
 	}
-	ft_printf("NO DUPS.\n");
 	return (0);
 }
