@@ -6,13 +6,13 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:16:25 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 16:46:01 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/01 12:22:53 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*stack_to_index(t_stack **stack_a, int array_len)
+void	stack_to_index(t_stack **stack_a, int array_len)
 {
 	t_stack	*current;
 	int		*array_numbers;
@@ -35,7 +35,8 @@ int	*stack_to_index(t_stack **stack_a, int array_len)
 	}
 	sort_index(array_numbers, array_len);
 	assign_index(stack_a, array_numbers);
-	return (array_numbers);
+	if (array_numbers)
+		free(array_numbers);
 }
 
 int	*sort_index(int *array_numbers, int array_len)

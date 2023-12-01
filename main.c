@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:22:10 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 16:39:45 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/01 18:38:55 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,23 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		i;
+	int		array_len;
 
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	if (parse(argc, argv, &stack_a, i) == 1)
+	array_len = 0;
+	if ((array_len = parse(argc, argv, &stack_a, i, array_len)) == 1)
+	{
+		if (stack_a != NULL)
+		{
+			ft_printf("Error: Too few input\n");
+			stackclear(&stack_a);
+		}
 		return (1);
+	}
 	has_duplicate(&stack_a);
-	print_stack_a(&stack_a);
+	sort(&stack_a, &stack_b, array_len);
 	// system("leaks push_swap");
 	return (0);
 }
@@ -79,8 +88,7 @@ void	print_stack_a(t_stack **stack_a)
 	temp = *stack_a;
 	while (temp)
 	{
-		ft_printf("stack a content: %d\n", temp->content);
-		ft_printf("stack a index: %d\n", temp->index);
+		ft_printf("stack a index %d, value %d\n", temp->index, temp->content);
 		temp = temp->next;
 	}
 }
@@ -92,7 +100,7 @@ void	print_stack_b(t_stack **stack_b)
 	temp = *stack_b;
 	while (temp)
 	{
-		ft_printf("stack_b: %d\n", temp->content);
+		ft_printf("stack b index %d, value %d\n", temp->index, temp->content);
 		temp = temp->next;
 	}
 }

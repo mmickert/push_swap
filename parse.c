@@ -6,17 +6,16 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 16:46:51 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/01 17:12:44 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	parse(int argc, char **argv, t_stack **stack_a, int i)
+int	parse(int argc, char **argv, t_stack **stack_a, int i, int array_len)
 {
 	int		j;
 	char	**input_numbers;
-	int		array_len;
 
 	array_len = 0;
 	while (i < argc)
@@ -37,10 +36,8 @@ int	parse(int argc, char **argv, t_stack **stack_a, int i)
 		i++;
 	}
 	stack_to_index(stack_a, array_len);
-	return (0);
+	return (array_len);
 }
-
-// sort stack with K sort
 
 void	free_input_numbers(char **input_numbers)
 {

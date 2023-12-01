@@ -6,13 +6,13 @@
 #    By: mickert <mickert@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 11:22:16 by mickert           #+#    #+#              #
-#    Updated: 2023/11/30 16:03:53 by mickert          ###   ########.fr        #
+#    Updated: 2023/12/01 13:41:14 by mickert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
-SRC = main.c parse.c parse_list.c swap.c push.c rotate.c rev_rotate.c sort_index.c stack.c 
+SRC = main.c parse.c parse_list.c swap.c push.c rotate.c rev_rotate.c sort_index.c stack.c sort.c
 OBJ = $(SRC:.c=.o)
 NAME = ./push_swap 
 LIBFTDIR = ft_libft
