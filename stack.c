@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:32:11 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 16:05:43 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/02 14:46:12 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void	stackclear(t_stack **lst)
 		return ;
 	while (*lst)
 	{
-			next_temp = (*lst)->next;
-			free(*lst);
-			*lst = next_temp;
+		next_temp = (*lst)->next;
+		free(*lst);
+		*lst = next_temp;
 	}
 	*lst = NULL;
 }

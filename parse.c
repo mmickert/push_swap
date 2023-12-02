@@ -6,17 +6,19 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/01 17:12:44 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/02 14:56:27 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	parse(int argc, char **argv, t_stack **stack_a, int i, int array_len)
+int	parse(int argc, char **argv, t_stack **stack_a, int array_len)
 {
+	int		i;
 	int		j;
 	char	**input_numbers;
 
+	i = 1;
 	array_len = 0;
 	while (i < argc)
 	{

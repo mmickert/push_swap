@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:29:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/11/30 15:55:28 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/02 14:45:56 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,4 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	sa(stack_a, 42);
 	sb(stack_b, 42);
 	ft_printf("ss\n");
-
 }

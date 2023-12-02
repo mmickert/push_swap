@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:23:06 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/01 18:31:25 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/02 15:04:44 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack
 }				t_stack;
 
 int		main(int argc, char *argv[]);
-int		parse(int argc, char **argv, t_stack **stack_a, int i, int array_len);
+int		parse(int argc, char **argv, t_stack **stack_a, int array_len);
 t_stack	*stacknew(int c);
 void	stackadd_back(t_stack **lst, t_stack *new);
 t_stack	*stacklast(t_stack *lst);
@@ -56,8 +56,9 @@ void	sort(t_stack **stack_a, t_stack **stack_b, int array_len);
 void	sort_2(t_stack **stack_a);
 void	sort_3(t_stack **stack_a);
 void	sort_5(t_stack **stack_a, t_stack **stack_b);
-void	sort_more(t_stack **stack_a, t_stack **stack_b, int array_len);
-int 	square(int array_len);
+void	sort_more(t_stack **stack_a, t_stack **stack_b,
+			int array_len, int middle);
+int		square(int array_len);
 
 void	print_stack_a(t_stack **stack_a);
 void	print_stack_b(t_stack **stack_b);

@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:22:10 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/01 18:38:55 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/02 15:12:09 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		i;
 	int		array_len;
 
-	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
 	array_len = 0;
-	if ((array_len = parse(argc, argv, &stack_a, i, array_len)) == 1)
+	array_len = parse(argc, argv, &stack_a, array_len);
+	if (array_len == 1)
 	{
 		if (stack_a != NULL)
 		{
@@ -103,4 +102,14 @@ void	print_stack_b(t_stack **stack_b)
 		ft_printf("stack b index %d, value %d\n", temp->index, temp->content);
 		temp = temp->next;
 	}
+}
+
+int	square(int array_len)
+{
+	int	i;
+
+	i = 0;
+	while (i * i < array_len)
+		i++;
+	return (i - 1);
 }
