@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/02 14:56:27 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:39:57 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ int	parse(int argc, char **argv, t_stack **stack_a, int array_len)
 	{
 		input_numbers = ft_split(argv[i], ' ');
 		j = 0;
-		if (check(*input_numbers, stack_a) == 1)
-			return (free_input_numbers(input_numbers), 1);
+		check(*input_numbers, stack_a);
 		while (input_numbers[j] != NULL)
 		{
 			stackadd_back(stack_a,
-				stacknew(ft_atoi_push_swap(input_numbers[j])));
+				stacknew(ft_atoi_push_swap(stack_a, input_numbers[j])));
 			j++;
 			array_len++;
 		}
@@ -67,19 +66,20 @@ int	check(char *str, t_stack **stack_a)
 			i++;
 		if (ft_isdigit(str[i]) == 0)
 		{
-			ft_printf("Error: invalid input\n");
+			ft_printf("Error\n");
+			free_input_numbers(&str);
 			stackclear(stack_a);
-			return (1);
+			exit (1);
 		}
 		i++;
 	}
 	return (0);
 }
 
-int	ft_atoi_push_swap(const char *str)
+int	ft_atoi_push_swap(t_stack **stack_a, const char *str)
 {
-	int	i;
-	int	nbr;
+	int		i;
+	long	nbr;
 
 	nbr = 0;
 	i = 0;
@@ -94,6 +94,12 @@ int	ft_atoi_push_swap(const char *str)
 	{
 		nbr = nbr * 10 + (str[i] - '0');
 		i++;
+	}
+	if (nbr < -2147483648 || nbr > 2147483647)
+	{
+		ft_printf("Error\n");
+		stackclear(stack_a);
+		exit (1);
 	}
 	return (nbr);
 }

@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:16:25 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/01 12:22:53 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/02 18:38:43 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	stack_to_index(t_stack **stack_a, int array_len)
 	array_numbers = ft_calloc(array_len + 1, sizeof(int));
 	if (!array_numbers)
 	{
-		ft_printf("Error: Memory allocation failed\n");
+		ft_printf("Error\n");
 		stackclear(stack_a);
 		exit(1);
 	}
@@ -82,5 +82,19 @@ void	assign_index(t_stack **stack_a, int *array_numbers)
 		}
 		else
 			i++;
+	}
+}
+
+void	check_min_max(t_stack *stack_a)
+{
+	while (stack_a)
+	{
+		if ((stack_a->content < -2147483648) || (stack_a->content > 2147483647))
+		{
+			ft_printf("Error\n");
+			stackclear(&stack_a);
+			exit(1);
+		}
+		stack_a = stack_a->next;
 	}
 }
