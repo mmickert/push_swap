@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:22:10 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/03 14:04:16 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 19:00:17 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	main(int argc, char *argv[])
 	array_len = parse(argc, argv, &stack_a, array_len);
 	has_duplicate(&stack_a);
 	sort(&stack_a, &stack_b, array_len);
+	stackclear(&stack_a);
+	if (stack_b)
+		stackclear(&stack_b);
 	return (0);
 }
 
@@ -54,26 +57,29 @@ int	turning_way(t_stack *stack_b, int array_len)
 
 //system("leaks push_swap");
 
-// void	print_stack_a(t_stack **stack_a)
-// {
-// 	t_stack	*temp;
+	// print_stack_a(stack_a);
+	// print_stack_b(stack_b);
 
-// 	temp = *stack_a;
-// 	while (temp)
-// 	{
-// 		ft_printf("stack a index %d, value %d\n", temp->index, temp->content);
-// 		temp = temp->next;
-// 	}
-// }
+void	print_stack_a(t_stack **stack_a)
+{
+	t_stack	*temp;
 
-// void	print_stack_b(t_stack **stack_b)
-// {
-// 	t_stack	*temp;
+	temp = *stack_a;
+	while (temp)
+	{
+		ft_printf("stack a index %d, value %d\n", temp->index, temp->content);
+		temp = temp->next;
+	}
+}
 
-// 	temp = *stack_b;
-// 	while (temp)
-// 	{
-// 		ft_printf("stack b index %d, value %d\n", temp->index, temp->content);
-// 		temp = temp->next;
-// 	}
-// }
+void	print_stack_b(t_stack **stack_b)
+{
+	t_stack	*temp;
+
+	temp = *stack_b;
+	while (temp)
+	{
+		ft_printf("stack b index %d, value %d\n", temp->index, temp->content);
+		temp = temp->next;
+	}
+}

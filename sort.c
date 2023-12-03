@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 12:25:02 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/02 18:39:31 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 18:58:02 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void	sort(t_stack **stack_a, t_stack **stack_b, int array_len)
 		sort_3(stack_a);
 	else if (array_len > 3)
 	{
+		if (already_sorted(*stack_a) == 0)
+		{
+			stackclear(stack_a);
+			exit (0);
+		}
 		sort_more_to_b(stack_a, stack_b, middle);
 		sort_more_to_a(stack_a, stack_b, array_len);
 	}

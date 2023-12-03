@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/03 14:39:02 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 18:17:41 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,10 @@ void	free_input_numbers(char **input_numbers)
 int	check(char *str, t_stack **stack_a)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	if (!str)
-		exit(1);
+		exit(0);
 	while (str[i])
 	{
 		if (str[i] == '-' || str[i] == '+')

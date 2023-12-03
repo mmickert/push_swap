@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:32:11 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/03 14:42:26 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 18:58:06 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,19 @@ void	stackclear(t_stack **lst)
 		*lst = next_temp;
 	}
 	*lst = NULL;
+}
+
+int	already_sorted(t_stack *stack_a)
+{
+	int	i;
+
+	i = 1;
+	while (stack_a)
+	{
+		if (stack_a->index != i)
+			return (1);
+		stack_a = stack_a->next;
+		i++;
+	}
+	return (0);
 }

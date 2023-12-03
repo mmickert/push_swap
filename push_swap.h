@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:23:06 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/03 14:38:05 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 17:32:08 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	rra(t_stack **stack_a, int i);
 void	rrb(t_stack **stack_b, int i);
 void	rrr(t_stack **stack_b, t_stack **stack_a);
 int		*sort_index(int *array_numbers, int array_len);
+int		already_sorted(t_stack *stack_a);
 void	sort(t_stack **stack_a, t_stack **stack_b, int array_len);
 void	sort_2(t_stack **stack_a);
 void	sort_3(t_stack **stack_a);
