@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:16:25 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/02 18:38:43 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 13:53:54 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,5 @@ void	assign_index(t_stack **stack_a, int *array_numbers)
 		}
 		else
 			i++;
-	}
-}
-
-void	check_min_max(t_stack *stack_a)
-{
-	while (stack_a)
-	{
-		if ((stack_a->content < -2147483648) || (stack_a->content > 2147483647))
-		{
-			ft_printf("Error\n");
-			stackclear(&stack_a);
-			exit(1);
-		}
-		stack_a = stack_a->next;
 	}
 }

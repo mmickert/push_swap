@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:23:06 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/02 18:40:37 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 14:38:05 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ typedef struct s_stack
 
 int		main(int argc, char *argv[]);
 int		parse(int argc, char **argv, t_stack **stack_a, int array_len);
-void	check_min_max(t_stack *stack_a);
 t_stack	*stacknew(int c);
 void	stackadd_back(t_stack **lst, t_stack *new);
 t_stack	*stacklast(t_stack *lst);
 void	stackclear(t_stack **lst);
 int		ft_atoi_push_swap(t_stack **stack_a, const char *str);
+void	check_atoi(long nbr, t_stack **stack_a);
 int		check(char *str, t_stack **stack_a);
 void	free_input_numbers(char **input_numbers);
 int		has_duplicate(t_stack **stack_a);

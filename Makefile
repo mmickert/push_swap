@@ -6,12 +6,12 @@
 #    By: mickert <mickert@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/12 11:22:16 by mickert           #+#    #+#              #
-#    Updated: 2023/12/02 18:13:36 by mickert          ###   ########.fr        #
+#    Updated: 2023/12/03 14:09:15 by mickert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g 
+CFLAGS = -Wall -Wextra -Werror -g
 # -fsanitize=address
 SRC = main.c parse.c parse_list.c swap.c push.c rotate.c rev_rotate.c sort_index.c stack.c sort.c
 OBJ = $(SRC:.c=.o)

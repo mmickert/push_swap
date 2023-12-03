@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/02 18:39:57 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/03 14:39:02 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	parse(int argc, char **argv, t_stack **stack_a, int array_len)
 		check(*input_numbers, stack_a);
 		while (input_numbers[j] != NULL)
 		{
-			stackadd_back(stack_a,
-				stacknew(ft_atoi_push_swap(stack_a, input_numbers[j])));
+			stackadd_back(stack_a, stacknew(ft_atoi_push_swap(stack_a,
+						input_numbers[j])));
 			j++;
 			array_len++;
 		}
@@ -60,16 +60,17 @@ int	check(char *str, t_stack **stack_a)
 
 	i = 0;
 	j = 0;
+	if (!str)
+		exit(1);
 	while (str[i])
 	{
-		if (str[i] == '-')
+		if (str[i] == '-' || str[i] == '+')
 			i++;
 		if (ft_isdigit(str[i]) == 0)
 		{
 			ft_printf("Error\n");
-			free_input_numbers(&str);
 			stackclear(stack_a);
-			exit (1);
+			exit(1);
 		}
 		i++;
 	}
@@ -80,13 +81,15 @@ int	ft_atoi_push_swap(t_stack **stack_a, const char *str)
 {
 	int		i;
 	long	nbr;
+	int		minus;
 
 	nbr = 0;
 	i = 0;
+	minus = 1;
 	if (str[i] == '-')
 	{
-		ft_printf("-");
 		i++;
+		minus = -1;
 	}
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
@@ -95,11 +98,17 @@ int	ft_atoi_push_swap(t_stack **stack_a, const char *str)
 		nbr = nbr * 10 + (str[i] - '0');
 		i++;
 	}
+	nbr *= minus;
+	check_atoi(nbr, stack_a);
+	return (nbr);
+}
+
+void	check_atoi(long nbr, t_stack **stack_a)
+{
 	if (nbr < -2147483648 || nbr > 2147483647)
 	{
 		ft_printf("Error\n");
 		stackclear(stack_a);
-		exit (1);
+		exit(1);
 	}
-	return (nbr);
 }
