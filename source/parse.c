@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:01 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/03 18:17:41 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:53:30 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	parse(int argc, char **argv, t_stack **stack_a, int array_len)
 	{
 		input_numbers = ft_split(argv[i], ' ');
 		j = 0;
-		check(*input_numbers, stack_a);
 		while (input_numbers[j] != NULL)
 		{
+			check(input_numbers[j], stack_a);
 			stackadd_back(stack_a, stacknew(ft_atoi_push_swap(stack_a,
 						input_numbers[j])));
 			j++;

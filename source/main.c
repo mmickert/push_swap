@@ -6,7 +6,7 @@
 /*   By: mickert <mickert@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:22:10 by mickert           #+#    #+#             */
-/*   Updated: 2023/12/03 19:00:17 by mickert          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:53:20 by mickert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +60,26 @@ int	turning_way(t_stack *stack_b, int array_len)
 	// print_stack_a(stack_a);
 	// print_stack_b(stack_b);
 
-void	print_stack_a(t_stack **stack_a)
-{
-	t_stack	*temp;
+// void	print_stack_a(t_stack **stack_a)
+// {
+// 	t_stack	*temp;
 
-	temp = *stack_a;
-	while (temp)
-	{
-		ft_printf("stack a index %d, value %d\n", temp->index, temp->content);
-		temp = temp->next;
-	}
-}
+// 	temp = *stack_a;
+// 	while (temp)
+// 	{
+// 		ft_printf("stack a index %d, value %d\n", temp->index, temp->content);
+// 		temp = temp->next;
+// 	}
+// }
 
-void	print_stack_b(t_stack **stack_b)
-{
-	t_stack	*temp;
+// void	print_stack_b(t_stack **stack_b)
+// {
+// 	t_stack	*temp;
 
-	temp = *stack_b;
-	while (temp)
-	{
-		ft_printf("stack b index %d, value %d\n", temp->index, temp->content);
-		temp = temp->next;
-	}
-}
+// 	temp = *stack_b;
+// 	while (temp)
+// 	{
+// 		ft_printf("stack b index %d, value %d\n", temp->index, temp->content);
+// 		temp = temp->next;
+// 	}
+// }
