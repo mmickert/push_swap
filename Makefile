@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mickert <mickert@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/06 16:37:25 by mickert           #+#    #+#              #
+#    Updated: 2023/12/06 16:57:09 by mickert          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 # CFLAGS = -fsanitize=address -Wunreachable-code
@@ -35,6 +47,7 @@ $(LIBFT_OBJDIR):
 	@mkdir -p $@
 
 clean:
+	rm -f $(ODIR)/*.o
 	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean

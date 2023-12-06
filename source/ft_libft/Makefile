@@ -6,7 +6,7 @@
 #    By: mickert <mickert@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:45:12 by mickert           #+#    #+#              #
-#    Updated: 2023/11/13 13:24:50 by mickert          ###   ########.fr        #
+#    Updated: 2023/12/06 17:01:35 by mickert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ ft_putnbr_fd.c ft_strtrim.c ft_itoa.c ft_split.c ft_lstadd_front.c \
 ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 ft_lstclear.c ft_lstiter.c ft_lstmap.c get_next_line.c ft_printf.c ft_put.c ft_puthex_fd.c 
 
-OBJ = $(SRC:.c=.o)
+OBJDIR = objectives
+OBJ = $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 NAME = libft.a
 # NAME = ./a.out
 
@@ -33,6 +34,7 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@mkdir -p $(OBJDIR)
 	ar	-rcs	$(NAME)	$(OBJ) 
 # $(NAME): $(OBJ)
 # 	$(CC) $(CFLAGS) $(OBJ) -o $@
@@ -40,7 +42,7 @@ $(NAME): $(OBJ)
 # bonus: $(Bon_OBJ)
 # 	ar	-rcs	$(NAME)	$(Bon_OBJ)
 
-%.o: %.c
+$(OBJDIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
